@@ -1,15 +1,16 @@
 import Image from "next/image";
 
 import Rocketseat from "../assets/rocketseat.svg";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
-    <div>
-      <div className="flex items-center justify-between max-w-[1064px] w-full mx-auto py-6 px-5">
+    <>
+      <header className="flex items-center justify-between max-w-[1064px] w-full mx-auto py-6 px-5">
         <Image src={Rocketseat} width={632 / 4} alt="Rocketseat" />
 
-        <div>
-          <a
+        <nav>
+          <Link
             title="GitHub"
             href="https://github.com/Alison-Gabriel"
             className="text-brand-primary"
@@ -32,40 +33,62 @@ export default function HomePage() {
                 fill="currentColor"
               />
             </svg>
-          </a>
-        </div>
-      </div>
+          </Link>
+        </nav>
+      </header>
 
-      <div className="text-zinc-400 max-w-[808px] w-full mx-auto py-6 px-5">
-        <h2 className="mb-5 text-2xl font-bold">
-          Desenvolvendo uma web accessivel
-        </h2>
+      <main className="text-zinc-400 max-w-[808px] w-full mx-auto py-6 px-5">
+        <article>
+          <header>
+            <h2 className="mb-5 text-2xl font-bold">
+              Desenvolvendo uma web acessivel
+            </h2>
+            <h4 className="text-lg font-bold">
+              Protocolos e diretrizes orientam o desenvolvimento de tecnologias
+              acessiveis, mas e preciso olhar para alem de tudo isso
+            </h4>
+          </header>
 
-        <h4 className="text-lg font-bold">
-          Protocolos e diretrizes orientam o desenvolvimento de tecnologias
-          acessiveis, mas e preciso olhar para alem de tudo isso
-        </h4>
+          <p className="my-5">
+            Acessibilidade se tornou uma tendencia no ecossistema tecnologico
+            mundial, diversas empresas passaram a adotar criterios de
+            desenvolvimento acessivel em seus projetos - por uma questao pratica
+            ou por exigencias legais -, no entanto, ainda faltam recursos e
+            consciencia do que de fato e inclusivo na internet para pessoas com
+            deficiencia.
+          </p>
 
-        <p className="my-5">
-          Acessibilidade se tornou uma tendencia no ecossistema tecnologico
-          mundial, diversas empresas passaram a adotar criterios de
-          desenvolvimento acessivel em seus projetos - por uma questao pratica
-          ou por exigencias legais -, no entanto, ainda faltam recursos e
-          consciencia do que de fato e inclusivo na internet para pessoas com
-          deficiencia.
-        </p>
+          <p className="my-5">
+            Para abordar esse tema, e preciso ter uma perspectiva cultural sobre
+            o assunto, nao encara-lo apenas na otica tecnica ou pratica.
+            Acessibilidade passou a ser vista como um desafio (ou tendencia)
+            para o ecossistema tech e nao como filosofia natural daquilo que
+            condiz com os principios basicos da web: acessivel para humanos. Tal
+            afirmacao esta na W3C.
+          </p>
 
-        <p className="my-5">
-          Para abordar esse tema, e preciso ter uma perspectiva cultural sobre o
-          assunto, nao encara-lo apenas na otica tecnica ou pratica.
-          Acessibilidade passou a ser vista como um desafio (ou tendencia) para
-          o ecossistema tech e nao como filosofia natural daquilo que condiz com
-          os principios basicos da web: acessivel para humanos. Tal afirmacao
-          esta na W3C.
-        </p>
+          <h3 className="text-xl font-bold">O que e acessibilidade, afinal?</h3>
+        </article>
+      </main>
 
-        <h3 className="text-xl font-bold">O que e acessibilidade, afinal?</h3>
-      </div>
-    </div>
+      <footer className="flex items-center justify-between max-w-[1064px] w-full mx-auto py-6 px-5">
+        <Image src={Rocketseat} width={632 / 4} alt="Rocketseat" />
+
+        <nav
+          aria-label="Rodape"
+          className="flex flex-col gap-3 items-end text-zinc-300 text-sm"
+        >
+          <Link href="/" className="hover:underline">
+            Termos de uso
+          </Link>
+          <Link href="/" className="hover:underline">
+            Entre em contato
+          </Link>
+          <Link href="/" className="hover:underline">
+            Sobre nos
+          </Link>
+        </nav>
+      </footer>
+    </>
   );
 }
