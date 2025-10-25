@@ -6,10 +6,11 @@ export default function HomePage() {
   return (
     <div>
       <div className="flex items-center justify-between max-w-[1064px] w-full mx-auto py-6 px-5">
-        <Image src={Rocketseat} width={632 / 4} alt="" />
+        <Image src={Rocketseat} width={632 / 4} alt="Rocketseat" />
 
         <div>
           <a
+            title="GitHub"
             href="https://github.com/Alison-Gabriel"
             className="text-brand-primary"
           >
