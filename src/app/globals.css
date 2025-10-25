@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
-:root {
-  --dark-bg-color: #121214;
+@theme {
+  --color-brand-dark-bg: #121214;
+  --color-brand-primary: #8257e5;
 }
 
 body {
-  background-color: var(--dark-bg-color);
+  @apply color-brand-dark-bg;
 }
