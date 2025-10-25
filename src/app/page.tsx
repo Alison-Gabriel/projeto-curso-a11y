@@ -41,13 +41,17 @@ export default function HomePage() {
       <main className="max-w-[808px] w-full mx-auto py-6 px-5">
         <article>
           <header>
-            <h2 className="mb-5 text-2xl font-bold">
+            <h1 className="mb-5 text-3xl font-bold">
               Desenvolvendo uma web acessivel
+            </h1>
+
+            <h2 className="font-semibold">
+              <i>
+                Protocolos e diretrizes orientam o desenvolvimento de
+                tecnologias acessiveis, mas e preciso olhar para alem de tudo
+                isso
+              </i>
             </h2>
-            <h4 className="text-lg font-bold">
-              Protocolos e diretrizes orientam o desenvolvimento de tecnologias
-              acessiveis, mas e preciso olhar para alem de tudo isso
-            </h4>
           </header>
 
           <p className="my-5">
@@ -58,6 +62,7 @@ export default function HomePage() {
             consciencia do que de fato e inclusivo na internet para pessoas com
             deficiencia.
           </p>
+
           <p className="my-5">
             Para abordar esse tema, e preciso ter uma perspectiva cultural sobre
             o assunto, nao encara-lo apenas na otica tecnica ou pratica.
@@ -67,7 +72,9 @@ export default function HomePage() {
             afirmacao esta na W3C.
           </p>
 
-          <h3 className="text-xl font-bold">O que e acessibilidade, afinal?</h3>
+          <h2 className="font-semibold text-xl">
+            O que e acessibilidade, afinal?
+          </h2>
         </article>
       </main>
 
