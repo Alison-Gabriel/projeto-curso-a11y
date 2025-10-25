@@ -3,8 +3,12 @@
 @theme {
   --color-brand-dark-bg: #121214;
   --color-brand-primary: #8257e5;
+  --color-brand-text-color: #a8a8b3;
+  --color-brand-shape: #202024;
+  --color-brand-secondary: #996dff;
 }
 
 body {
-  @apply color-brand-dark-bg;
+  @apply bg-brand-dark-bg;
+  @apply text-brand-text-color;
 }

@@ -38,7 +38,7 @@ export default function HomePage() {
         </nav>
       </header>
 
-      <main className="text-zinc-400 max-w-[808px] w-full mx-auto py-6 px-5">
+      <main className="max-w-[808px] w-full mx-auto py-6 px-5">
         <article>
           <header>
             <h2 className="mb-5 text-2xl font-bold">
@@ -78,13 +78,25 @@ export default function HomePage() {
           aria-label="Rodape"
           className="flex flex-col gap-3 items-end text-zinc-300 text-sm"
         >
-          <Link aria-label="Termos de uso" href="/" className="hover:underline">
+          <Link
+            aria-label="Termos de uso"
+            href="/"
+            className="bg-brand-shape rounded-md px-4 py-2 hover:opacity-80 transition-all"
+          >
             Termos de uso
           </Link>
-          <Link aria-label="Contato" href="/" className="hover:underline">
+          <Link
+            aria-label="Contato"
+            href="/"
+            className="bg-brand-shape rounded-md px-4 py-2 hover:opacity-80 transition-all"
+          >
             Entre em contato
           </Link>
-          <Link aria-label="Sobre" href="/" className="hover:underline">
+          <Link
+            aria-label="Sobre"
+            href="/"
+            className="bg-brand-shape rounded-md px-4 py-2 hover:opacity-80 transition-all"
+          >
             Sobre nos
           </Link>
         </nav>
