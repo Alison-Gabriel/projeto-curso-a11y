@@ -1,9 +1,18 @@
+"use client";
+
 import Image from "next/image";
 
 import Rocketseat from "../assets/rocketseat.svg";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function HomePage() {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const handleModalToggle = () => {
+    setModalIsOpen((prevState) => !prevState);
+  };
+
   return (
     <>
       <header className="flex items-center justify-between max-w-[1064px] w-full mx-auto py-6 px-5">
@@ -89,6 +98,7 @@ export default function HomePage() {
             aria-label="Termos de uso"
             href="/"
             className="bg-brand-shape font-semibold rounded-md px-4 py-2 hover:opacity-80 transition-all"
+            onClick={handleModalToggle}
           >
             Termos de uso
           </Link>
@@ -108,6 +118,13 @@ export default function HomePage() {
           </Link>
         </nav>
       </footer>
+
+      {modalIsOpen && (
+        <div className="fixed top-1/2 left-1/2 -translate-1/2 justify-center gap-2 p-20 rounded-xl shadow-md flex flex-col items-center bg-brand-text-color text-brand-dark-bg">
+          <h2 className="text-2xl font-bold">Termos de uso</h2>
+          <p>Esses sao os termos de uso.</p>
+        </div>
+      )}
     </>
   );
 }
