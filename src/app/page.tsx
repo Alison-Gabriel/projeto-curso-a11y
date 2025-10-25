@@ -7,15 +7,16 @@ export default function HomePage() {
   return (
     <>
       <header className="flex items-center justify-between max-w-[1064px] w-full mx-auto py-6 px-5">
-        <Image src={Rocketseat} width={632 / 4} alt="Rocketseat" />
+        <Image alt="Rocketseat" src={Rocketseat} width={848 / 5} />
 
         <nav>
           <Link
-            title="GitHub"
+            aria-label="Github"
             href="https://github.com/Alison-Gabriel"
             className="text-brand-primary"
           >
             <svg
+              aria-hidden="true"
               height="28"
               viewBox="0 -3.1 2490.3 2493"
               width="26"
@@ -57,7 +58,6 @@ export default function HomePage() {
             consciencia do que de fato e inclusivo na internet para pessoas com
             deficiencia.
           </p>
-
           <p className="my-5">
             Para abordar esse tema, e preciso ter uma perspectiva cultural sobre
             o assunto, nao encara-lo apenas na otica tecnica ou pratica.
@@ -72,19 +72,19 @@ export default function HomePage() {
       </main>
 
       <footer className="flex items-center justify-between max-w-[1064px] w-full mx-auto py-6 px-5">
-        <Image src={Rocketseat} width={632 / 4} alt="Rocketseat" />
+        <Image alt="Rocketseat" src={Rocketseat} width={848 / 6} />
 
         <nav
           aria-label="Rodape"
           className="flex flex-col gap-3 items-end text-zinc-300 text-sm"
         >
-          <Link href="/" className="hover:underline">
+          <Link aria-label="Termos de uso" href="/" className="hover:underline">
             Termos de uso
           </Link>
-          <Link href="/" className="hover:underline">
+          <Link aria-label="Contato" href="/" className="hover:underline">
             Entre em contato
           </Link>
-          <Link href="/" className="hover:underline">
+          <Link aria-label="Sobre" href="/" className="hover:underline">
             Sobre nos
           </Link>
         </nav>
