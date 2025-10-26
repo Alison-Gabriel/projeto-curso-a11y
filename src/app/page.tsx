@@ -4,14 +4,21 @@ import Image from "next/image";
 
 import Rocketseat from "../assets/rocketseat.svg";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function HomePage() {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [dialogIsShown, setDialogIsShown] = useState(false);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
-  const handleModalToggle = () => {
-    setModalIsOpen((prevState) => !prevState);
+  const handleDialog = () => {
+    setDialogIsShown((prev) => !prev);
   };
+
+  useEffect(() => {
+    if (dialogIsShown) {
+      dialogRef.current?.focus();
+    }
+  }, [dialogIsShown]);
 
   return (
     <>
@@ -96,9 +103,10 @@ export default function HomePage() {
         >
           <Link
             aria-label="Termos de uso"
+            aria-controls="dialog"
             href="/"
             className="bg-brand-shape font-semibold rounded-md px-4 py-2 hover:opacity-80 transition-all"
-            onClick={handleModalToggle}
+            onClick={handleDialog}
           >
             Termos de uso
           </Link>
@@ -119,10 +127,31 @@ export default function HomePage() {
         </nav>
       </footer>
 
-      {modalIsOpen && (
-        <div className="fixed top-1/2 left-1/2 -translate-1/2 justify-center gap-2 p-20 rounded-xl shadow-md flex flex-col items-center bg-brand-text-color text-brand-dark-bg">
-          <h2 className="text-2xl font-bold">Termos de uso</h2>
-          <p>Esses sao os termos de uso.</p>
+      {dialogIsShown && (
+        <div
+          id="dialog"
+          ref={dialogRef}
+          className="fixed top-1/2 left-1/2 -translate-1/2 bg-zinc-300 text-zinc-950 p-5 max-w-lg rounded-xl shadow space-y-4 text-center"
+          tabIndex={-1}
+          role="dialog"
+          aria-labelledby="dialogTitle"
+          aria-describedby="dialogDesc"
+        >
+          <h2 id="dialogTitle" className="text-2xl font-bold">
+            Termos de uso
+          </h2>
+          <p id="dialogDesc">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime
+            maiores facilis odio ex nam obcaecati accusamus at aliquid, porro
+            doloribus adipisci! Unde, asperiores adipisci molestiae hic optio
+            alias aperiam magnam.
+          </p>
+          <button
+            onClick={handleDialog}
+            className="px-4 py-2 bg-zinc-950 text-zinc-300 rounded-lg font-bold shadow cursor-pointer hover:opacity-95 transition-all"
+          >
+            Fechar
+          </button>
         </div>
       )}
     </>
