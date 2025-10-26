@@ -4,22 +4,18 @@ import Image from "next/image";
 
 import Rocketseat from "../assets/rocketseat.svg";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
+} from "@radix-ui/react-dialog";
 
 export default function HomePage() {
-  const [dialogIsShown, setDialogIsShown] = useState(false);
-  const dialogRef = useRef<HTMLDivElement>(null);
-
-  const handleDialog = () => {
-    setDialogIsShown((prev) => !prev);
-  };
-
-  useEffect(() => {
-    if (dialogIsShown) {
-      dialogRef.current?.focus();
-    }
-  }, [dialogIsShown]);
-
   return (
     <>
       <header className="flex items-center justify-between max-w-[1064px] w-full mx-auto py-6 px-5">
@@ -101,15 +97,36 @@ export default function HomePage() {
           aria-label="Rodape"
           className="flex gap-3 items-end text-zinc-300 text-sm"
         >
-          <Link
-            aria-label="Termos de uso"
-            aria-controls="dialog"
-            href="/"
-            className="bg-brand-shape font-semibold rounded-md px-4 py-2 hover:opacity-80 transition-all"
-            onClick={handleDialog}
-          >
-            Termos de uso
-          </Link>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Link
+                aria-label="Termos de uso"
+                href="/"
+                className="bg-brand-shape font-semibold rounded-md px-4 py-2 hover:opacity-80 transition-all"
+              >
+                Termos de uso
+              </Link>
+            </DialogTrigger>
+
+            <DialogPortal>
+              <DialogOverlay className="fixed inset-0 bg-black/10 backdrop-blur-md" />
+              <DialogContent className="fixed top-1/2 left-1/2 -translate-1/2 bg-zinc-200 text-brand-dark-bg rounded-xl shadow max-w-xl p-6 text-center flex flex-col items-center justify-center gap-4">
+                <DialogTitle className="font-bold text-2xl">
+                  Termos de uso
+                </DialogTitle>
+                <DialogDescription className="font-medium text-brand-dark-bg/60">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Inventore fuga impedit consectetur, officia corrupti quod
+                  recusandae sint nam? Earum natus culpa quidem ratione laborum,
+                  totam harum ducimus asperiores nesciunt eos.
+                </DialogDescription>
+                <DialogClose className="bg-brand-dark-bg text-zinc-200 font-semibold px-6 py-2 rounded-lg shadow cursor-pointer self-end hover:opacity-90 transition-all">
+                  Fechar
+                </DialogClose>
+              </DialogContent>
+            </DialogPortal>
+          </Dialog>
+
           <Link
             aria-label="Contato"
             href="/"
@@ -126,34 +143,6 @@ export default function HomePage() {
           </Link>
         </nav>
       </footer>
-
-      {dialogIsShown && (
-        <div
-          id="dialog"
-          ref={dialogRef}
-          className="fixed top-1/2 left-1/2 -translate-1/2 bg-zinc-300 text-zinc-950 p-5 max-w-lg rounded-xl shadow space-y-4 text-center"
-          tabIndex={-1}
-          role="dialog"
-          aria-labelledby="dialogTitle"
-          aria-describedby="dialogDesc"
-        >
-          <h2 id="dialogTitle" className="text-2xl font-bold">
-            Termos de uso
-          </h2>
-          <p id="dialogDesc">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            maiores facilis odio ex nam obcaecati accusamus at aliquid, porro
-            doloribus adipisci! Unde, asperiores adipisci molestiae hic optio
-            alias aperiam magnam.
-          </p>
-          <button
-            onClick={handleDialog}
-            className="px-4 py-2 bg-zinc-950 text-zinc-300 rounded-lg font-bold shadow cursor-pointer hover:opacity-95 transition-all"
-          >
-            Fechar
-          </button>
-        </div>
-      )}
     </>
   );
 }
